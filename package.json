@@ -1,0 +1,50 @@
+{
+  "name": "mangokk-ui",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/mango-ui.common.js",
+  "files": [
+    "lib",
+    "src",
+    "packages"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --config build/webpack.dev.js",
+    "dist": "cross-env NODE_ENV=development webpack --config build/webpack.common.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kankk/mango-ui.git"
+  },
+  "keywords": [
+    "vue",
+    "components"
+  ],
+  "author": "Mangokk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kankk/mango-ui/issues"
+  },
+  "homepage": "https://github.com/kankk/mango-ui#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
+  }
+}
