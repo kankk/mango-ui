@@ -10,3 +10,9 @@ export default {
   
 }
 </script>
+
+<style lang="scss" scoped>
+.m-text {
+  font-size: 12px;
+}
+</style>

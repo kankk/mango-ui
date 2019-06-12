@@ -1,3 +1,8 @@
+# Vue项目配置px2vw
+1. npm i -S postcss-import postcss-url autoprefixer
+2. npm i -S postcss-aspect-ratio-mini postcss-px-to-viewport postcss-write-svg postcss-cssnext postcss-viewport-units
+3. `postcssrc.js`
+```JavaScript
 module.exports = {
   "plugins": {
     "postcss-import": {},
@@ -17,10 +22,6 @@ module.exports = {
       mediaQuery: false // (Boolean) Allow px to be converted in media queries.
     },
     "postcss-viewport-units": {},
-    // "cssnano": {
-    //   preset: "advanced",
-    //   autoprefixer: false,
-    //   "postcss-zindex": false
-    // }
   }
 }
+```
