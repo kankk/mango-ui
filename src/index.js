@@ -1,8 +1,8 @@
-import Text from '../packages/text/index.js';
+import Button from '../packages/button/index.js';
 
 // 所有组件
 const components = [
-  Text
+  Button
 ];
 
 const install = function (Vue, options = {}) {
@@ -13,5 +13,5 @@ const install = function (Vue, options = {}) {
 
 export default {
   install,
-  Text
+  Button
 }

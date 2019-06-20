@@ -1,6 +1,6 @@
 <template>
   <div>
-    <m-text>mango-ui text</m-text>
+    <router-view></router-view>
   </div>
 </template>
 

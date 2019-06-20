@@ -1,14 +1,61 @@
 import Vue from 'vue';
-import App from './App';
+import VueRouter from 'vue-router';
+import Demo from './Demo';
+import Api from './Api';
+
+import './assets/styles/reset.scss';
 
 import MangoUI from 'main/index.js';
 
 // local-test
 // import MangoUI from '../lib/mango-ui.common.js';
 
+import NavConfig from './nav.demo';
+
 Vue.use(MangoUI);
+Vue.use(VueRouter);
+
+// 屏幕宽度
+const SCREEN_WIDTH = window.screen.width;
+const DEMO_OR_API_WIDTH = 720;
+
+let routes = [];
+let targetRootVue = null;
+
+if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) {
+  routes.unshift({
+    name: 'home',
+    path: `/`,
+    component: () => import(`./pages_api/Home.vue`)
+  })
+
+  targetRootVue = Api;
+} else {
+  // 路由配置
+  routes = NavConfig.map(nav => {
+    return {
+      name: nav.name,
+      path: `/${nav.name}`,
+      component: () => import(`./pages_demo/${nav.name}.vue`)
+    }
+  });
+  routes.unshift({
+    name: 'home',
+    path: `/`,
+    component: () => import(`./pages_demo/Home.vue`)
+  })
+
+  targetRootVue = Demo;
+}
+
+const router = new VueRouter({
+  mode: 'hash',
+  base: __dirname,
+  routes
+})
 
 new Vue({
   el: '#app',
-  render: h => h(App)
-})
+  router,
+  render: h => h(targetRootVue)
+});
