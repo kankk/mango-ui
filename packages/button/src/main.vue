@@ -1,4 +1,5 @@
 <template>
+  <!-- ios系统需要定义touchstart才会触发伪元素active -->
   <a
     class="m-button"
     :class="[
@@ -8,6 +9,7 @@
         'm-button__disabled': disabled
       }]"
     @click="handleClick"
+    @touchstart=""
   >
     <span class="m-button-text">
       <slot />
@@ -58,6 +60,16 @@ export default {
   text-align: center;
   box-sizing: border-box;
   border-radius: 4px;
+  font-family: system-ui;
+  &:not(.m-button__disabled):active {
+    &.m-button__default {
+      background-color: #ddd;
+    }
+
+    &.m-button__primary, &.m-button__error {
+      opacity: 0.75;
+    }
+  }
   .m-button-text {
     font-weight: 400;
   }
@@ -121,4 +133,8 @@ export default {
     opacity: 0.35;
   }
 }
+</style>
+
+<style lang="scss">
+@import 'packages/assets/styles/base.scss';
 </style>

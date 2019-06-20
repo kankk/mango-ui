@@ -1,3 +1,10 @@
+# 实现的api
+* 尺寸(size): `large`, `normal`, `small`, `mini`
+* 行内/块状(inline): `inline`
+* 类型(type): `default`, `primary`, `error`
+* 禁用(disabled): `disabled`
+* 点击(event:click)
+
 # 1px线/边框
 解决方案: `transform: scale`
 ```css
@@ -30,3 +37,6 @@
   }
 }
 ```
+
+# 点击效果
+ios系统需要定义touchstart才会触发伪元素active(:active)
