@@ -1,11 +1,24 @@
 <template>
   <div id="home">
-    <div class="nav-title">组件导航栏</div>
+    <div class="nav-title">
+      组件导航栏
+    </div>
     <div class="nav-list">
-      <div class="nav-item" v-for="nav in navList" :key="nav.name" @click="handleNavTo(nav)">
+      <div
+        v-for="nav in navList"
+        :key="nav.name"
+        class="nav-item"
+        @click="handleNavTo(nav)"
+      >
         <div class="nav-item-content">
-          <div class="nav-item-content-label">{{ nav.label }}</div>
-          <img class="nav-item-content-arrow" src="../assets/images/list-item-arrow.svg" alt="">
+          <div class="nav-item-content-label">
+            {{ nav.label }}
+          </div>
+          <img
+            class="nav-item-content-arrow"
+            src="../assets/images/list-item-arrow.svg"
+            alt=""
+          >
         </div>
       </div>
     </div>
@@ -16,10 +29,10 @@
 import NavConfig from '../nav.demo';
 export default {
   name: 'PageHome',
-  data() {
+  data () {
     return {
       navList: NavConfig
-    }
+    };
   },
   methods: {
     handleNavTo (nav) {
@@ -28,7 +41,7 @@ export default {
       });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

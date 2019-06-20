@@ -8,15 +8,15 @@
 import NavConfig from '../nav.demo';
 export default {
   name: 'ApiHome',
-  data() {
+  data () {
     return {
 
-    }
+    };
   },
   methods: {
 
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

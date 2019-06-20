@@ -34,6 +34,12 @@ const webpackConfig = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(vue|jsx?)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      {
         test: /\.(jsx?|babel|es6)$/,
         include: process.cwd(),
         exclude: config.jsexclude,
@@ -65,15 +71,15 @@ const webpackConfig = {
           name: path.posix.join('static', '[name].[hash:7].[ext]')
         }
       }
-    ],
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './examples/index.html',
-      filename: './index.html',
+      filename: './index.html'
     }),
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin()
   ]
-}
+};
 
 module.exports = webpackConfig;

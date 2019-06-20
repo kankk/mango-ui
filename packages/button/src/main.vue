@@ -1,14 +1,16 @@
 <template>
-  <a class="m-button" :class="[
-    'm-button__' + size,
-    'm-button__' + type, { 
-    'm-button__inline': inline,
-    'm-button__disabled': disabled
-    }]"
+  <a
+    class="m-button"
+    :class="[
+      'm-button__' + size,
+      'm-button__' + type, {
+        'm-button__inline': inline,
+        'm-button__disabled': disabled
+      }]"
     @click="handleClick"
-    >
+  >
     <span class="m-button-text">
-      <slot></slot>
+      <slot />
     </span>
   </a>
 </template>
@@ -21,7 +23,7 @@ export default {
       type: String,
       default: 'normal',
       required: false,
-      validator(value) {
+      validator (value) {
         return ['large', 'normal', 'small', 'mini'].indexOf(value) !== -1;
       }
     },
@@ -34,7 +36,7 @@ export default {
       }
     },
     inline: Boolean,
-    disabled: Boolean,
+    disabled: Boolean
   },
   methods: {
     handleClick () {
@@ -42,8 +44,8 @@ export default {
         this.$emit('click');
       }
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>

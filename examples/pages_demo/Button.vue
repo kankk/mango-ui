@@ -58,14 +58,14 @@ export default {
   data () {
     return {
       clickEventCount: 0
-    }
+    };
   },
   methods: {
     handleClickEvent () {
       this.clickEventCount++;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

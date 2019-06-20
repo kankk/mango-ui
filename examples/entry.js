@@ -25,9 +25,9 @@ let targetRootVue = null;
 if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) {
   routes.unshift({
     name: 'home',
-    path: `/`,
-    component: () => import(`./pages_api/Home.vue`)
-  })
+    path: '/',
+    component: () => import('./pages_api/Home.vue')
+  });
 
   targetRootVue = Api;
 } else {
@@ -37,13 +37,13 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) {
       name: nav.name,
       path: `/${nav.name}`,
       component: () => import(`./pages_demo/${nav.name}.vue`)
-    }
+    };
   });
   routes.unshift({
     name: 'home',
-    path: `/`,
-    component: () => import(`./pages_demo/Home.vue`)
-  })
+    path: '/',
+    component: () => import('./pages_demo/Home.vue')
+  });
 
   targetRootVue = Demo;
 }
@@ -52,9 +52,9 @@ const router = new VueRouter({
   mode: 'hash',
   base: __dirname,
   routes
-})
+});
 
-new Vue({
+new Vue({  // eslint-disable-line
   el: '#app',
   router,
   render: h => h(targetRootVue)

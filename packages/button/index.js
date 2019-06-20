@@ -1,6 +1,7 @@
 import Button from './src/main';
 
-Button.install = function(Vue) {
+// eslint-disable-line
+Button.install = function (Vue) {
   Vue.component(Button.name, Button);
 };
 
