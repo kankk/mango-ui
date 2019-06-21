@@ -11,9 +11,9 @@
     @click="handleClick"
     @touchstart=""
   >
-    <span class="m-button-text">
+    <!-- <span class="m-button-text"> -->
       <slot />
-    </span>
+    <!-- </span> -->
   </a>
 </template>
 
@@ -26,7 +26,7 @@ export default {
       default: 'normal',
       required: false,
       validator (value) {
-        return ['large', 'normal', 'small', 'mini'].indexOf(value) !== -1;
+        return ['large', 'normal', 'small'].indexOf(value) !== -1;
       }
     },
     type: {
@@ -60,6 +60,7 @@ export default {
   text-align: center;
   box-sizing: border-box;
   border-radius: 4px;
+  font-weight: 400;
   font-family: system-ui;
   &:not(.m-button__disabled):active {
     &.m-button__default {
@@ -69,9 +70,6 @@ export default {
     &.m-button__primary, &.m-button__error {
       opacity: 0.75;
     }
-  }
-  .m-button-text {
-    font-weight: 400;
   }
   // inline / block
   &.m-button__inline {
@@ -102,30 +100,17 @@ export default {
   &.m-button__large {
     height: $large;
     line-height: $large;
-    .m-button-text {
-      font-size: $fontsize_large;
-    }
+    font-size: $fontsize_large;
   }
   &.m-button__normal {
     height: $normal;
     line-height: $normal;
-    .m-button-text {
-      font-size: $fontsize_normal;
-    }
+    font-size: $fontsize_normal;
   }
   &.m-button__small {
     height: $small;
     line-height: $small;
-    .m-button-text {
-      font-size: $fontsize_small;
-    }
-  }
-  &.m-button__mini {
-    height: $mini;
-    line-height: $mini;
-    .m-button-text {
-      font-size: $fontsize_mini;
-    }
+    font-size: $fontsize_small;
   }
 
   // diabled

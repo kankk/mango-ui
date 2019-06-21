@@ -7,7 +7,6 @@
         <m-button size="large" inline>large</m-button>
         <m-button inline>normal</m-button>
         <m-button size="small" inline>small</m-button>
-        <m-button size="mini" inline>mini</m-button>
       </div>
     </div>
     <div class="content">

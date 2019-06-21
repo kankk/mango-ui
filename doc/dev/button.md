@@ -1,5 +1,5 @@
 # 实现的api
-* 尺寸(size): `large`, `normal`, `small`, `mini`
+* 尺寸(size): `large`, `normal`, `small`
 * 行内/块状(inline): `inline`
 * 类型(type): `default`, `primary`, `error`
 * 禁用(disabled): `disabled`
