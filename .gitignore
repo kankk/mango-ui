@@ -8,3 +8,5 @@ lib
 .npmrc
 .envrc
 package-lock.json
+
+examples/dist

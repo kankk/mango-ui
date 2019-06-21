@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import Demo from './Demo';
 import Api from './Api';
 
+import DemoList from './components/DemoList/index.js';
+
 import './assets/styles/reset.scss';
 
 import MangoUI from 'main/index.js';
@@ -13,6 +15,8 @@ import MangoUI from 'main/index.js';
 import NavConfig from './nav.demo';
 Vue.use(MangoUI);
 Vue.use(VueRouter);
+
+Vue.use(DemoList);
 
 // 屏幕宽度
 const SCREEN_WIDTH = window.screen.width;
@@ -31,17 +35,20 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) {
   targetRootVue = Api;
 } else {
   // 路由配置
-  routes = NavConfig.map(nav => {
+  routes = NavConfig.reduce((arr, cur) => arr.concat(cur.items), []).map(nav => {
     return {
       name: nav.name,
       path: `/${nav.name}`,
-      component: () => import(`./pages_demo/${nav.name}.vue`)
+      // component: () => import(`./pages_demo/${nav.name}.vue`)
+      component: resolve => require.ensure([], () => resolve(require(`./pages_demo/${nav.name}.vue`)))
     };
   });
   routes.unshift({
     name: 'home',
     path: '/',
-    component: () => import('./pages_demo/Home.vue')
+    // component: () => import('./pages_demo/Home.vue')
+    // component: () => import(/* webpackChunkName: "Home" */ './pages_demo/Home.vue')
+    component: resolve => require.ensure([], () => resolve(require('./pages_demo/Home.vue')), 'home')
   });
 
   targetRootVue = Demo;

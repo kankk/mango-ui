@@ -1,26 +1,14 @@
 <template>
   <div id="home">
-    <div class="nav-title">
-      组件导航栏
+    <div class="information">
+      <img class="logo" src="../assets/images/logo.png" alt="">
+      <div class="name">Mango-UI</div>
+      <div class="title">🍻一个基于Vue的移动端UI组件库</div>
     </div>
-    <div class="nav-list">
-      <div
-        v-for="nav in navList"
-        :key="nav.name"
-        class="nav-item"
-        @click="handleNavTo(nav)"
-      >
-        <div class="nav-item-content">
-          <div class="nav-item-content-label">
-            {{ nav.label }}
-          </div>
-          <img
-            class="nav-item-content-arrow"
-            src="../assets/images/list-item-arrow.svg"
-            alt=""
-          >
-        </div>
-      </div>
+    <div class="demos">
+      <demo-list v-for="category in navList" :title="category.label" :key="category.name">
+        <demo-list-item v-for="item in category.items" :key="item.name" @click="handleNavTo(item)">{{ item.label }}</demo-list-item>
+      </demo-list>
     </div>
   </div>
 </template>
@@ -49,40 +37,33 @@ export default {
 #home {
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.04);
-  .nav-title {
-    padding: 12px 15px;
-    color: rgba(0, 0, 0, 0.45);
-  }
-  .nav-list {
-    @include border-top($color: rgba(0, 0, 0, 0.15));
-    @include border-bottom($color: rgba(0, 0, 0, 0.15));
-    background-color: rgba(255, 255, 255, 1);
-    .nav-item {
-      min-height: 44px;
-      padding-left: 15px;
-      .nav-item-content {
-        min-height: 44px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 15px;
-        .nav-item-content-label {
-          font-size: 17px;
-          line-height: 24px;
-          color: rgba(0, 0, 0, 0.85);
-        }
-        .nav-item-content-arrow {
-          width: 30px;
-          height: 30px;
-        }
-      }
-
-      &:not(:last-child) {
-        .nav-item-content {
-          @include border-bottom($color: rgba(0, 0, 0, 0.15));
-        }
-      }
+  box-sizing: border-box;
+  .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    .logo {
+      width: 64px;
+      height: 64px;
     }
+    .name {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #333;
+    }
+    .title {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+  .demos {
+    overflow: hidden;
+    padding: 0 16px 12px;
+    box-sizing: border-box;
   }
 }
 </style>
