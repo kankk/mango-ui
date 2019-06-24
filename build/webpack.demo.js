@@ -28,12 +28,6 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.(vue|jsx?)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      },
-      {
         test: /\.(jsx?|babel|es6)$/,
         include: process.cwd(),
         exclude: config.jsexclude,
@@ -54,6 +48,22 @@ const webpackConfig = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
+          },
+          {
+            loader: path.resolve(__dirname, './md-loader/index.js')
+          }
         ]
       },
       {

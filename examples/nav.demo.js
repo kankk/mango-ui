@@ -4,7 +4,7 @@ export default [
     label: '数据录入',
     items: [
       {
-        name: 'Button',
+        name: 'button',
         label: '按钮 Button'
       }
     ]
@@ -14,7 +14,7 @@ export default [
     label: '操作反馈',
     items: [
       {
-        name: 'Toast',
+        name: 'toast',
         label: '轻提示 Toast'
       }
     ]

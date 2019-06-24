@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Demo from './Demo';
 import Api from './Api';
 
-import DemoList from './components/DemoList/index.js';
+import DemoList from './components/demo-list/index.js';
 
 import './assets/styles/reset.scss';
 
@@ -25,30 +25,35 @@ const DEMO_OR_API_WIDTH = 720;
 let routes = [];
 let targetRootVue = null;
 
-if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) {
+if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) { // web-api
   routes.unshift({
     name: 'home',
     path: '/',
-    component: () => import('./pages_api/Home.vue')
+    component: resolve => require.ensure([], () => resolve(require('./pages_api/home.vue')), 'home'),
+    redirect: '/button',
+    children: NavConfig.reduce((arr, cur) => arr.concat(cur.items), []).map(nav => {
+      return {
+        name: nav.name,
+        path: `/${nav.name}`,
+        component: resolve => require.ensure([], () => resolve(require(`./docs/${nav.name}.md`)))
+      };
+    })
   });
 
   targetRootVue = Api;
-} else {
+} else { // demos
   // 路由配置
   routes = NavConfig.reduce((arr, cur) => arr.concat(cur.items), []).map(nav => {
     return {
       name: nav.name,
       path: `/${nav.name}`,
-      // component: () => import(`./pages_demo/${nav.name}.vue`)
       component: resolve => require.ensure([], () => resolve(require(`./pages_demo/${nav.name}.vue`)))
     };
   });
   routes.unshift({
     name: 'home',
     path: '/',
-    // component: () => import('./pages_demo/Home.vue')
-    // component: () => import(/* webpackChunkName: "Home" */ './pages_demo/Home.vue')
-    component: resolve => require.ensure([], () => resolve(require('./pages_demo/Home.vue')), 'home')
+    component: resolve => require.ensure([], () => resolve(require('./pages_demo/home.vue')), 'home')
   });
 
   targetRootVue = Demo;
