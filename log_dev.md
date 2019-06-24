@@ -158,3 +158,10 @@ module.exports = {
 
 # postcss-px-to-viewport
 * `.postcssrc.js`配置`postcss-px-to-viewport`中的`exclude`属性定义忽略px2vw的文件/文件夹(reg值)
+
+# markdown文件转页面
+1. 定义`.md`文件的webpack-loader
+2. 通过`markdown-it`把markdown内容转成html内容
+3. 通过`highlightjs`把markdown内容的代码块格式化+css样式
+4. 把html内容通过`v-html`标签嵌入到vue页面模板中
+5. 通过`vue-loader`把模板编译成页面显示
