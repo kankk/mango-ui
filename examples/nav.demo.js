@@ -6,6 +6,10 @@ export default [
       {
         name: 'button',
         label: '按钮 Button'
+      },
+      {
+        name: 'switch',
+        label: '开关 Switch'
       }
     ]
   },
