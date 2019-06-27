@@ -68,20 +68,21 @@ export default {
     border-radius: 15px;
     box-sizing: border-box;
     position: relative;
+    transition: background-color 0.2s ease-out;
     &::after {
       content: '';
       position: absolute;
       width: 28px;
       background-color: #fff;
       border-radius: 14px;
-      transition: left 0.2s ease-out;
+      transition: transform 0.2s ease-out;
     }
   }
   &.active {
     .m-switch-wrap::after {
       content: '';
       top: 1px;
-      left: 21px;
+      transform: translateX(20px);
       bottom: 1px;
       box-shadow: 2px 2px 4px rgba(0,0,0,.21);
     }
@@ -94,7 +95,7 @@ export default {
     .m-switch-wrap::after {
       content: '';
       top: 1px;
-      left: 0;
+      left: 1px;
       bottom: 1px;
       box-shadow: 2px 2px 4px rgba(0,0,0,.21);
     }
