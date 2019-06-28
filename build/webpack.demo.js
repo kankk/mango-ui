@@ -79,7 +79,8 @@ const webpackConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './examples/index.html',
-      filename: './index.html'
+      filename: './index.html',
+      favicon: './examples/favicon.ico'
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({

@@ -5,14 +5,18 @@
       <div class="name">Mango-UI</div>
     </div>
     <div class="header-right">
-
+      <img class="github" @click="toGithub" src="../../assets/images/github.svg" alt="">
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  methods: {
+    toGithub () {
+      window.open('https://github.com/kankk/mango-ui', '_blank');
+    }
+  }
 };
 </script>
 
@@ -38,6 +42,21 @@ export default {
     .name {
       font-size: 18x;
       color: #333;
+    }
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    .github {
+      width: 24px;
+      height: 24px;
+      transition: all 0.2s ease-out;
+      opacity: 0.65;
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+        cursor: pointer;
+      }
     }
   }
 }

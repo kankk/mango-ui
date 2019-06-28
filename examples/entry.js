@@ -7,10 +7,10 @@ import DemoList from './components/demo-list/index.js';
 
 import './assets/styles/reset.scss';
 
-import MangoUI from 'main/index.js';
+// import MangoUI from 'main/index.js';
 
 // local-test
-// import MangoUI from '../lib/mango-ui.common.js';
+import MangoUI from '../lib/mango-ui.common.js';
 
 import NavConfig from './nav.demo';
 Vue.use(MangoUI);
