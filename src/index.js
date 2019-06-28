@@ -1,11 +1,15 @@
 import Button from 'packages/button/index.js';
 import Switch from 'packages/switch/index.js';
+import List from 'packages/list/index.js';
+import ListItem from 'packages/list-item/index.js';
 import Toast from 'packages/Toast/index.js';
 
 // 所有组件
 const components = [
   Button,
-  Switch
+  Switch,
+  List,
+  ListItem
 ];
 
 const install = function (Vue, options = {}) {

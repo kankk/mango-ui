@@ -1,6 +1,9 @@
 # Button 按钮
 
 ## 基本用法
+```html
+<m-button>Button</m-button>
+```
 
 ### 尺寸
 

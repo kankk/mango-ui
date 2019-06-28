@@ -62,6 +62,7 @@ export default {
   border-radius: 4px;
   font-weight: 400;
   font-family: system-ui;
+  background-color: #fff;
   &:not(.m-button__disabled):active {
     &.m-button__default {
       background-color: #ddd;

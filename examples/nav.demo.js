@@ -22,5 +22,15 @@ export default [
         label: '轻提示 Toast'
       }
     ]
+  },
+  {
+    name: 'combination',
+    label: '组合',
+    items: [
+      {
+        name: 'list',
+        label: '列表 List'
+      }
+    ]
   }
 ];
