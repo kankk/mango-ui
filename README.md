@@ -2,7 +2,7 @@
 
 ## 预览
 
-![](https://github.com/kankk/mango-ui/tree/master/examples/assets/images/qrcode.png)
+![](https://github.com/kankk/mango-ui/blob/master/examples/assets/images/qrcode.png?raw=true)
 
 ## 安装
 
