@@ -6,8 +6,16 @@
       <div class="title">🍻一个基于Vue的移动端UI组件库</div>
     </div>
     <div class="demos">
-      <demo-list v-for="category in navList" :title="category.label" :key="category.name">
-        <demo-list-item v-for="item in category.items" :key="item.name" @click="handleNavTo(item)">{{ item.label }}</demo-list-item>
+      <demo-list
+        v-for="category in navList"
+        :title="category.label"
+        :key="category.name">
+        <demo-list-item
+          v-for="item in category.items"
+          :key="item.name"
+          @click="handleNavTo(item)">
+          {{ item.label }}
+        </demo-list-item>
       </demo-list>
     </div>
   </div>
@@ -19,7 +27,8 @@ export default {
   name: 'PageHome',
   data () {
     return {
-      navList: NavConfig
+      // 过滤掉没有 items 的项
+      navList: NavConfig.filter(_item => _item.items)
     };
   },
   methods: {

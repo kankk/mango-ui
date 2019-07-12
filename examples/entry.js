@@ -38,7 +38,6 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) { // web-api
         return arr.concat(cur.items);
       }
     }, []).map(nav => {
-      console.log(nav.name);
       return {
         name: nav.name,
         path: `/${nav.name}`,
@@ -47,12 +46,11 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) { // web-api
     })
   });
 
-  console.log(routes);
-
   targetRootVue = Api;
 } else { // demos
   // 路由配置
-  routes = NavConfig.reduce((arr, cur) => arr.concat(cur.items), []).map(nav => {
+  // 过滤掉没有 items 的项目
+  routes = NavConfig.filter(_item => _item.items).reduce((arr, cur) => arr.concat(cur.items), []).map(nav => {
     return {
       name: nav.name,
       path: `/${nav.name}`,
