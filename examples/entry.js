@@ -31,7 +31,14 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) { // web-api
     path: '/',
     component: resolve => require.ensure([], () => resolve(require('./pages_api/home.vue')), 'home'),
     redirect: '/button',
-    children: NavConfig.reduce((arr, cur) => arr.concat(cur.items), []).map(nav => {
+    children: NavConfig.reduce((arr, cur) => {
+      if (!cur.items) {
+        return arr.concat([cur]);
+      } else {
+        return arr.concat(cur.items);
+      }
+    }, []).map(nav => {
+      console.log(nav.name);
       return {
         name: nav.name,
         path: `/${nav.name}`,
@@ -39,6 +46,8 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) { // web-api
       };
     })
   });
+
+  console.log(routes);
 
   targetRootVue = Api;
 } else { // demos
