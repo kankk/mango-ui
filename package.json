@@ -47,6 +47,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
+    "eslint-config-mangokk": "0.0.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-html": "^5.0.5",
     "eslint-plugin-json": "^1.4.0",
