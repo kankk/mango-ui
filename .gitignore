@@ -10,3 +10,4 @@ lib
 package-lock.json
 
 examples/dist
+coverage/

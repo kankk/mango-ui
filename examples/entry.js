@@ -30,7 +30,7 @@ if (SCREEN_WIDTH > DEMO_OR_API_WIDTH) { // web-api
     name: 'home',
     path: '/',
     component: resolve => require.ensure([], () => resolve(require('./pages_api/home.vue')), 'home'),
-    redirect: '/button',
+    redirect: '/introduce',
     children: NavConfig.reduce((arr, cur) => {
       if (!cur.items) {
         return arr.concat([cur]);

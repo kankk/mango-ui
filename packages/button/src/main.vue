@@ -11,9 +11,7 @@
     @click="handleClick"
     @touchstart=""
   >
-    <!-- <span class="m-button-text"> -->
-      <slot />
-    <!-- </span> -->
+    <slot />
   </a>
 </template>
 
